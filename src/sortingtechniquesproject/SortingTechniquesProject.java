@@ -70,20 +70,21 @@ public class SortingTechniquesProject {
     
 
     public static int[] bubblesort(int[] numbers) {
-        boolean swapped = true ;
-        for (int i = 0; i < numbers.length - 1 && swapped; i++) {
-            swapped = false;
-            for (int j = 0; j < numbers.length - i - 1; j++) {
-                if (numbers[j + 1] < numbers[j]) {
-                    int temp = numbers[j];
-                    numbers[j] = numbers[j + 1];
-                    numbers[j + 1] = temp;
-                    swapped = true;
-                }
+    boolean swapped = true;
+    for (int i = 0; i < numbers.length - 1; i++) {
+        swapped = false;
+        for (int j = 0; j < numbers.length - i - 1; j++) {
+            if (numbers[j + 1] < numbers[j]) {
+                int temp = numbers[j];
+                numbers[j] = numbers[j + 1];
+                numbers[j + 1] = temp;
+                swapped = true;
             }
         }
-        return numbers;
+        if (!swapped) break;
     }
+    return numbers;
+}
 
     
     public static int[] selectionSort(int arr[]) {
