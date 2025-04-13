@@ -70,20 +70,23 @@ public class SortingTechniquesProject {
     
 
     public static int[] bubblesort(int[] numbers) {
-        boolean swapped = true ;
-        for (int i = 0; i < numbers.length - 1 && swapped; i++) {
-            swapped = false;
-            for (int j = 0; j < numbers.length - i - 1; j++) {
-                if (numbers[j + 1] < numbers[j]) {
-                    int temp = numbers[j];
-                    numbers[j] = numbers[j + 1];
-                    numbers[j + 1] = temp;
-                    swapped = true;
-                }
+    boolean swapped = true;
+    long startTime = System.nanoTime();
+    for (int i = 0; i < numbers.length - 1 && swapped; i++) {
+        swapped = false;
+        for (int j = 0; j < numbers.length - i - 1; j++) {
+            if (numbers[j + 1] < numbers[j]) {
+                int temp = numbers[j];
+                numbers[j] = numbers[j + 1];
+                numbers[j + 1] = temp;
+                swapped = true;
             }
         }
-        return numbers;
     }
+    long endTime = System.nanoTime();
+    System.out.println("Time taken for Bubble Sort: " + (endTime - startTime) + " nanoseconds");
+    return numbers;
+}
 
     
     public static int[] selectionSort(int arr[]) {
@@ -190,5 +193,3 @@ private static int partition(int[] arr, int low, int high) {
     arr[high] = temp;
     return i + 1;
 }}
-
-
